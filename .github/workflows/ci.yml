@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Instalar dependencias
+        if: ${{ hashFiles('app/package.json') != '' }}
+        run: npm ci
+      - name: Typecheck
+        if: ${{ hashFiles('app/tsconfig.json') != '' }}
+        run: npx tsc --noEmit
+      - name: Pruebas
+        if: ${{ hashFiles('app/package.json') != '' }}
+        run: npm test --if-present -- --ci

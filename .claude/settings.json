@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push origin main:*)",
+      "Bash(git push origin HEAD:main:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git tag:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh release:*)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}

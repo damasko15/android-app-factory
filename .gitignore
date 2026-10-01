@@ -1,0 +1,10 @@
+node_modules/
+.expo/
+dist/
+android/
+ios/
+*.keystore
+*.jks
+.env
+.env.*
+__pycache__/
